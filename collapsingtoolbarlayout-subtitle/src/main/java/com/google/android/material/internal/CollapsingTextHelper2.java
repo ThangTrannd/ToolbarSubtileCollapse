@@ -192,28 +192,28 @@ public final class CollapsingTextHelper2 {
   public void setExpandedTextSize(float textSize) {
     if (expandedTextSize != textSize) {
       expandedTextSize = textSize;
-      recalculate();
+      this.recalculate();
     }
   }
 
   public void setExpandedTextSize2(float textSize) {
     if (expandedTextSize2 != textSize) {
       expandedTextSize2 = textSize;
-      recalculate();
+      this.recalculate();
     }
   }
 
   public void setCollapsedTextSize(float textSize) {
     if (collapsedTextSize != textSize) {
       collapsedTextSize = textSize;
-      recalculate();
+      this.recalculate();
     }
   }
 
   public void setCollapsedTextSize2(float textSize) {
     if (collapsedTextSize2 != textSize) {
       collapsedTextSize2 = textSize;
-      recalculate();
+      this.recalculate();
     }
   }
 
@@ -229,6 +229,16 @@ public final class CollapsingTextHelper2 {
       collapsedTextColor2 = textColor;
       recalculate();
     }
+  }
+
+  public void setSubtitleVisibility(boolean visible,CharSequence subtitle) {
+    if (visible) {
+      setText2("");
+    } else {
+      setText2(subtitle);
+    }
+
+    ViewCompat.postInvalidateOnAnimation(view);
   }
 
   public void setExpandedTextColor(ColorStateList textColor) {

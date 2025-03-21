@@ -76,6 +76,8 @@ class MainActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener,
         toolbarLayout = findViewById(R.id.toolbarLayout)
         appbarLayout = findViewById(R.id.appbarLayout)
         viewPager = findViewById(R.id.viewPager)
+        viewPager = findViewById(R.id.viewPager)
+        floatingButton = findViewById(R.id.floatingButton)
         setSupportActionBar(toolbar)
 
         appbarLayout.addOnOffsetChangedListener(this)

@@ -97,6 +97,7 @@ public class SubtitleCollapsingToolbarLayout extends FrameLayout {
   private int titleExtraMultilineHeight = 0, subtitleExtraMultilineHeight = 0;
   private boolean titleExtraMultilineHeightEnabled, subtitleExtraMultilineHeightEnabled;
 
+  private CharSequence subtitle;
   public SubtitleCollapsingToolbarLayout(@NonNull Context context) {
     this(context, null);
   }
@@ -745,6 +746,7 @@ public class SubtitleCollapsingToolbarLayout extends FrameLayout {
    * @see #getSubtitle()
    */
   public void setSubtitle(@Nullable CharSequence subtitle) {
+    this.subtitle = subtitle;
     collapsingTextHelper.setText2(subtitle);
     updateContentDescriptionFromTitle();
   }
@@ -837,6 +839,13 @@ public class SubtitleCollapsingToolbarLayout extends FrameLayout {
    */
   public void setScrimsShown(boolean shown) {
     setScrimsShown(shown, ViewCompat.isLaidOut(this) && !isInEditMode());
+    collapsingTextHelper.setSubtitleVisibility(shown,subtitle);
+  }
+
+  public void setTextSize(int titleSizeExpand , int titleSizeCollapse, int descriptionSizeCollapse){
+    collapsingTextHelper.setExpandedTextSize(titleSizeExpand);
+    collapsingTextHelper.setCollapsedTextSize(titleSizeCollapse);
+    collapsingTextHelper.setExpandedTextSize2(descriptionSizeCollapse);
   }
 
   /**
